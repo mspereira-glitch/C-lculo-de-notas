@@ -1,0 +1,38 @@
+=========================================================
+RESUMEN DE FUNCIONALIDAD DE LA CALCULADORA DE NOTAS (3.0)
+=========================================================
+
+Esta aplicación web utiliza tres archivos interconectados para calcular la nota mínima que un estudiante necesita en su Corte 3 (con peso del 34%) para alcanzar una calificación final de 3.0.
+
+---------------------------------------------------------
+1. index2.html (ESTRUCTURA HTML)
+---------------------------------------------------------
+Función: Define la estructura y la interfaz de usuario de la aplicación.
+
+- Interfaz de Usuario: Contiene el título y las etiquetas descriptivas.
+- Campos de Entrada: Crea dos cuadros de texto (corte1 y corte2) para que el usuario ingrese las calificaciones obtenidas en el primer y segundo corte.
+- Botón de Acción: Incluye un botón que, al hacer clic, ejecuta la lógica de cálculo (llama a la función calcularNotaNecesaria()).
+- Contenedor de Resultado: Define un área (div con ID 'resultado') donde se mostrará la nota necesaria o un mensaje de error/éxito.
+- Enlaces: Vincula los archivos 'styles.css' para el diseño y 'script.js' para la funcionalidad.
+
+---------------------------------------------------------
+2. styles.css (ESTILOS CSS)
+---------------------------------------------------------
+Función: Controla la presentación visual (diseño y apariencia) de la interfaz.
+
+- Diseño Básico: Aplica estilos generales como la fuente, color de fondo, y centra el contenido principal.
+- Estética: Da formato a los contenedores, campos de entrada y al botón para mejorar la experiencia de usuario.
+- Estilos Dinámicos: Define el estilo base del área de resultado (#resultado), que JavaScript modificará (ej. cambiando el color del borde y el texto) para indicar diferentes estados (éxito, error, resultado).
+
+---------------------------------------------------------
+3. script.js (LÓGICA JAVASCRIPT)
+---------------------------------------------------------
+Función: Contiene la lógica central para las validaciones y el cálculo.
+
+- Función Principal: 'calcularNotaNecesaria()' se ejecuta cuando el usuario hace clic en el botón.
+- Validación de Rango y Vacío: Verifica que las notas de Corte 1 y Corte 2 sean números válidos (no vacíos) y que se encuentren estrictamente en el rango de 0.0 a 5.0. Detiene el cálculo y muestra un error si la validación falla.
+- Cálculo Ponderado: Utiliza la fórmula despejada para determinar la nota mínima del Corte 3 (N3) para alcanzar la meta de 3.0, considerando los pesos de 33%, 33% y 34%.
+- Escenarios de Resultado: Evalúa el valor calculado de la nota necesaria (N3) y muestra mensajes contextualmente relevantes:
+    - Si N3 <= 0: El estudiante ya aprueba.
+    - Si N3 > 5.0: Es imposible aprobar con el máximo de 5.0.
+    - Si 0 < N3 <= 5.0: Muestra la nota mínima requerida.
